@@ -8,17 +8,9 @@ function App() {
   return (
     <>
       <div>
-        <a className="" href=""><img src="public/plusplus.svg" alt="" />text</a>
+        <a className="" href=""><img src="public/plusplus.svg" alt="" /></a>
       </div>
       <h1>Medical Maintenance</h1>
-      <div className="card">  
-        
-        
-        <button type="submit" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-
-      </div>
     </>
   )
 }
