@@ -11,13 +11,13 @@ The project is contained in a single mono repo, and split into the `backend/` an
 
 ```plaintext
 /
-├── backend/                   # Java Spring Boot backend
+├── server/                    # Java Spring Boot backend
 │   ├── src/main/java/         # Java source code
 │   ├── src/main/resources/    # Application config (application.properties, etc.)
 │   ├── build.gradle           # Gradle build file
 │   ├── settings.gradle        # Gradle settings
 │   └── README.md              # Backend-specific docs
-├── frontend/                  # React + Vite frontend
+├── client/                    # React + Vite frontend
 │   ├── src/                   # React components & pages
 │   ├── public/                # Static public assets (index.html, favicon, etc.)
 │   ├── package.json           # NPM dependencies & scripts
