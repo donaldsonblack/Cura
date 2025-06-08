@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <a href=""><img src="public/plusplus.svg" alt="" /></a>
+        <a className="" href=""><img src="public/plusplus.svg" alt="" />text</a>
       </div>
       <h1>Medical Maintenance</h1>
       <div className="card">  
