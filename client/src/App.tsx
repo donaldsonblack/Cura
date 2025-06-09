@@ -1,8 +1,9 @@
+import { Button } from './components/ui/button'
 import './index.css'
 import Home from './pages/home'
 import Info from './pages/info'
 import Login from './pages/Login'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' 
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom' 
 // ^ curly braces means item(s) were named in the file they're being retrieved from
 
 
@@ -17,7 +18,6 @@ function App() {
         <Route path="/login" element={<Login/>} />
       </Routes>
     </Router>
-   
   )
 }
 

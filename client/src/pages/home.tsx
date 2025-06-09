@@ -10,7 +10,13 @@ function Home() {
             <h1>Home</h1>
             <div className="flex flex-wrap items-center gap-2 md:flex-row">
                 <Button>
-                    <Link to="/login">Login</Link>
+                    <Link to="/">Home</Link>
+                </Button>
+                <Button>
+                    <Link to="/Login">Login</Link>
+                </Button>
+                <Button>
+                    <Link to="/Info">Info</Link>
                 </Button>
             </div>
         </>
