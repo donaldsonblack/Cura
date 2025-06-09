@@ -11,24 +11,13 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Link } from 'react-router-dom'
 
 
 function Login() {
 
   return (
     <>
-        <div className="flex justify-center flex-wrap items-center gap-2 md:flex-row h-20">
-                <Button>
-                    <Link to="/">Home</Link>
-                </Button>
-                <Button>
-                    <Link to="/Login">Login</Link>
-                </Button>
-                <Button>
-                    <Link to="/Info">Info</Link>
-                </Button>
-            </div>
+       
 
       <div className='min-h-screen flex items-center justify-center'>
       <Card className="w-full max-w-sm">

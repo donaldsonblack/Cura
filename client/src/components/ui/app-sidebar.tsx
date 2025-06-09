@@ -1,4 +1,4 @@
-import { Menu, X, Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from "lucide-react"
+import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from "lucide-react"
 
 import {
   Sidebar,
@@ -10,13 +10,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu"
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 
 // Menu items.
 const items = [
@@ -67,14 +62,11 @@ export function AppSidebar() {
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
-
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-
-      
       <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
