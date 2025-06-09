@@ -1,4 +1,4 @@
-import './index.css'
+import '../index.css'
 import { Button } from "@/components/ui/button"
 import {
   Card,
