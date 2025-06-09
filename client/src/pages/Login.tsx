@@ -18,7 +18,7 @@ function Login() {
 
   return (
     <>
-        <div className="flex flex-wrap items-center gap-2 md:flex-row">
+        <div className="flex justify-center flex-wrap items-center gap-2 md:flex-row h-20">
                 <Button>
                     <Link to="/">Home</Link>
                 </Button>

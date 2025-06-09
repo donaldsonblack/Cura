@@ -1,4 +1,5 @@
 import { Button } from './components/ui/button'
+import Layout from './components/ui/layout'
 import './index.css'
 import Home from './pages/home'
 import Info from './pages/info'
@@ -13,8 +14,12 @@ function App() {
     
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/info" element={<Info/>} />
+        
+        <Route element={<Layout children={undefined}/>}>
+          <Route index element={<Home/>} />
+          <Route path="/info" element={<Info/>} />
+        </Route>
+        
         <Route path="/login" element={<Login/>} />
       </Routes>
     </Router>

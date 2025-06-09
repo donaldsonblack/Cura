@@ -7,7 +7,7 @@ function Info() {
     return (
         <>
             <h1>Info</h1>
-            <div className="flex flex-wrap items-center gap-2 md:flex-row">
+            <div className="flex justify-center flex-wrap items-center gap-2 md:flex-row h-20">
                 <Button>
                     <Link to="/">Home</Link>
                 </Button>
