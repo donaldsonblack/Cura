@@ -1,4 +1,4 @@
-import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from "lucide-react"
+import { Menu, X, Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from "lucide-react"
 
 import {
   Sidebar,
@@ -10,8 +10,14 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 // Menu items.
 const items = [
@@ -43,27 +49,38 @@ const items = [
 ]
 
 export function AppSidebar() {
+    
   return (
     <Sidebar variant="floating" collapsible="icon">
+       
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>MedTrack</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                // eslint-disable-next-line react-x/no-missing-key
+                <Tooltip>
+                    <TooltipTrigger>
+                        <SidebarMenuItem key={item.title}>
+                            <SidebarMenuButton asChild>
+                                <a href={item.url}>
+                                <item.icon />
+                                <span>{item.title}</span>
+                                </a>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>{item.title}</p>
+                    </TooltipContent>
+                </Tooltip>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
       
       <SidebarFooter>
           <SidebarMenu>
@@ -96,3 +113,4 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
