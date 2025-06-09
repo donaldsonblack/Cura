@@ -13,7 +13,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu"
-import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
@@ -59,9 +58,7 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                // eslint-disable-next-line react-x/no-missing-key
-                <Tooltip>
-                    <TooltipTrigger>
+
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton asChild>
                                 <a href={item.url}>
@@ -70,11 +67,7 @@ export function AppSidebar() {
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <p>{item.title}</p>
-                    </TooltipContent>
-                </Tooltip>
+
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
