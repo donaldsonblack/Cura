@@ -4,11 +4,11 @@ import { Outlet } from "react-router-dom"
 
 export default function Layout() {
   return (
-    <SidebarProvider>
+    <SidebarProvider className="w-screen">
       
       <AppSidebar />
-      <main className="">
-        <SidebarTrigger />
+      <main className="w-dvw"> {/* makes auto-sized main area content */}
+        <SidebarTrigger className=" scale-100"/>
          <Outlet  /> {/* This renders the nested route components like Home or Info */}
       
       </main>
