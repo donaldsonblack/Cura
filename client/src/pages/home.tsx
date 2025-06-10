@@ -63,7 +63,7 @@ const HeaderBlock = () => {
         
         {/* <a href="#" className="flex group items-center gap-1 text-red-600 hover:underline ">Inquire Now <ArrowRight className="size-4 transition-transform duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-130 group-hover:translate-x-1"/> </a> {/* can replace with Link from router to not refresh page */}
         <div className="flex flex-col items-end w-full">
-            <Button className="group hover:scale-110 hover:bg-blue-700 rounded-full bg-green-600 text-white text-2xl w-60 h-15 border border-zinc-300 font-bold">Inquire Now <ArrowRight className="size-7 -rotate-45 transition-transform duration-200 ease-in-out group-hover:rotate-[1deg] group-hover:scale-130" /></Button>
+            <Button className="group hover:scale-110 hover:bg-blue-700 rounded-full bg-green-600 text-white text-2xl w-60 h-15 border border-zinc-300 font-bold">Inquire Now <ArrowRight className="size-7 -rotate-405 transition-transform duration-300 ease-in-out group-hover:rotate-[1deg] group-hover:scale-130" /></Button>
         </div>
     </Block>
     )
