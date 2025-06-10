@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,15 @@ public class Equipment {
     @GetMapping("/all")
     public List<EquipmentModel> getAllRecords() {
         return equipmentService.getAllRecords();
+    }
+
+    @GetMapping("/id/{id}")
+    public EquipmentModel getRecordById(@PathVariable int id) {
+        return equipmentService.getRecordById(id);
+    }
+
+    @GetMapping("/name/{name}")
+    public EquipmentModel getRecordByName(@PathVariable String name) {
+        return equipmentService.getRecordByName(name);
     }
 }
