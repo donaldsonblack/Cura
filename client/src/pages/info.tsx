@@ -1,18 +1,19 @@
 import "../index.css"
 import { twMerge } from "tailwind-merge"
-import { ArrowRight, Cross, GlobeLock, MapPin, Salad, TrendingUp} from "lucide-react"
-import type { ReactNode } from "react"
-import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import type {  ReactNode } from "react"
+import React, { useState, useEffect } from 'react';
+
+
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Skeleton } from "@/components/ui/skeleton"
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 function Info() {
     return (
@@ -20,15 +21,13 @@ function Info() {
         
 
         <div className='min-h-screen bg-white px-4 py-12 text-zinc-900'>
-            <div className=" mx-auto max-w-12xl grid grid-cols-12 gap-4">
-                <HeaderBlock></HeaderBlock>
-                <SocialsBlock></SocialsBlock>
-                <AboutBlock></AboutBlock>
-                <LocationBlock></LocationBlock>
-                <Block className="col-span-3 row-span-1 m-0 p-0"><Skeleton className=" rounded-full" /></Block>
-               <Block className="col-span-6 row-span-2 m-0 p-0"><Skeleton className=" rounded-full" /></Block> 
-                <CarouselBlock></CarouselBlock>
-                <Block className="col-span-6 row-span-2 m-0 p-0"><Skeleton className=" rounded-full" /></Block>
+            <div className=" mx-auto max-w-16xl grid grid-cols-12 gap-4">
+                <Block className=""></Block>
+                <TableBlock></TableBlock>
+                <Block><EquipmentList></EquipmentList></Block>
+                <Block></Block>
+                <Block></Block>
+                <Block></Block>
             </div>
         </div>
 
@@ -49,88 +48,132 @@ type Props = { // what is type? what is a prop?
 
 const Block = ({ children, className, ...rest } : Props)  => { // what is this doing? is it a for each? is it defining each as a prop?
     return (
-        <div className={twMerge("col-span-4 rounded-lg border border-zinc-200 bg-zinc-100 p-6", className )} {...rest}>{children}
+        <div className={twMerge("h-30 col-span-4 rounded-lg border border-zinc-200 bg-zinc-100 p-6", className )} {...rest}>{children}
 </div>
     );
 };
 
-const HeaderBlock = () => {
-    return ( <Block className="col-span-12 row-span-2 md:col-span-6 ">
-        <img src="https://healthicons.org/icons/svg/outline/places/hospital.svg" alt="avatar" className="mb-4 size-14  bg-none" />
-        <h1 className="mb-12 text-4xl leading-tight font-bold" >Medical Maintenance <span className="text-zinc-400 font-medium">Secure Health  Software</span></h1>
-        
-        <a href="#" className="flex group items-center gap-1 text-red-600 hover:underline hover:font-medium ">Inquire Now <ArrowRight className="size-4 transition-transform duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-130 group-hover:translate-x-1"/> </a> {/* can replace with Link from router to not refresh page */}
-        
-    </Block>
-    )
+
+
+const invoices = [
+  {
+    invoice: "INV001",
+    paymentStatus: "Paid",
+    totalAmount: "$250.00",
+    paymentMethod: "Credit Card",
+  },
+  {
+    invoice: "INV002",
+    paymentStatus: "Pending",
+    totalAmount: "$150.00",
+    paymentMethod: "PayPal",
+  },
+  {
+    invoice: "INV003",
+    paymentStatus: "Unpaid",
+    totalAmount: "$350.00",
+    paymentMethod: "Bank Transfer",
+  },
+  {
+    invoice: "INV004",
+    paymentStatus: "Paid",
+    totalAmount: "$450.00",
+    paymentMethod: "Credit Card",
+  },
+  {
+    invoice: "INV005",
+    paymentStatus: "Paid",
+    totalAmount: "$550.00",
+    paymentMethod: "PayPal",
+  },
+  {
+    invoice: "INV006",
+    paymentStatus: "Pending",
+    totalAmount: "$200.00",
+    paymentMethod: "Bank Transfer",
+  },
+  {
+    invoice: "INV007",
+    paymentStatus: "Unpaid",
+    totalAmount: "$300.00",
+    paymentMethod: "Credit Card",
+  },
+]
+
+
+function TableBlock() {
+
+    return (
+    <Block className="h-max">
+        <Table>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[100px]">Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell className="font-medium">{invoice.invoice}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell className="text-right">$2,500.00</TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+    </Block>)
 }
 
-const SocialsBlock = () => (
-    <>
-        <Block className="col-span-6 bg-red-500 md:col-span-3 hover:scale-105 hover:rotate-3 transition-transform duration-200 ease-in-out">
-            <a href="" className="grid h-full place-content-center text-3xl text-white">
-                <Cross />
-            </a>
-        </Block>
-        <Block className="col-span-6 bg-green-500 md:col-span-3 hover:scale-105 hover:-rotate-3 transition-transform duration-200 ease-in-out">
-            <a href="" className="grid h-full place-content-center text-3xl text-white">
-                <Salad />
-            </a>
-        </Block>
-        <Block className="col-span-6 bg-blue-500 md:col-span-3 hover:scale-105 hover:rotate-3 transition-transform duration-200 ease-in-out">
-            <a href="" className="grid h-full place-content-center text-3xl text-white">
-                <GlobeLock />
-            </a>
-        </Block>
-        <Block className="col-span-6 bg-zinc-50 md:col-span-3 hover:scale-105 hover:-rotate-3 transition-transform duration-200 ease-in-out">
-            <a href="" className="grid h-full place-content-center text-3xl text-white">
-                <Cross />
-            </a>
-        </Block>
-    </>
-)
 
-const AboutBlock = () => (
-    <Block className="col-span-12 text-3xl leading-snug ">
-        <p className=" font-bold">
-            This is for Hospitals. {" "}
-            <span className="text-zinc-400 font-medium">
-                This was made with AWS, React, Java, Tailwind,
-                and more.
-            </span>
-        </p>
-    </Block>
-)
+function EquipmentList() {
+  const [equipment, setEquipment] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const LocationBlock = () => (
-    <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
-        <MapPin className="text-3xl"/>
-        <p className="text-center text-lg text-zinc-900 font-bold ">Melbourne, VIC</p>
-    </Block>
-)
+  useEffect(() => {
+    const fetchEquipment = async () => {
+      try {
+        const response = await fetch('127.0.0.1:8080/api/medtracedev/all');
+        if (!response.ok) {
+          throw new Error('Failed to fetch equipment');
+        }
+        const data = await response.json();
+        setEquipment(data);
+        console.log(response)
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchEquipment();
+  }, []);
 
-const CarouselBlock = () => (
-        <Block className="col-span-6 p-0 row-span-3 md:col-span-6 bg-white border-white">
-            
-                <Carousel className="border-none">
-        <CarouselContent className="border-none">
-            {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className="border-none">
-                <div className="p-1 border-none">
-                <Card className="border-zinc-300 ">
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl font-semibold border-zinc-300 ">{index + 1}</span>
-                    </CardContent>
-                </Card>
-                </div>
-            </CarouselItem>
-            ))}
-        </CarouselContent>
-        <CarouselPrevious className=" border-none translate-x-15" />
-        <CarouselNext className="border-none -translate-x-15" />
-        </Carousel>
-    
-    </Block>
-)
+  if (loading) return <div>Loading equipment...</div>;
+  if (error) return <div>Error: {error}</div>;
 
+  return (
+    <div>
+      <h2>Equipment List</h2>
+      <ul>
+        {equipment.map((item) => (
+          <li key={item.id}>
+            {item.name} - {item.year}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
