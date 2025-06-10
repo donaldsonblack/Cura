@@ -4,13 +4,15 @@ import { Outlet } from "react-router-dom"
 
 export default function Layout() {
   return (
-    <SidebarProvider defaultOpen={true}>
+    <SidebarProvider>
+      
       <AppSidebar />
-      <main>
+      <main className="">
         <SidebarTrigger />
-         <Outlet /> {/* This renders the nested route components like Home or Info */}
+         <Outlet  /> {/* This renders the nested route components like Home or Info */}
       
       </main>
+    
     </SidebarProvider>
   )
 }
