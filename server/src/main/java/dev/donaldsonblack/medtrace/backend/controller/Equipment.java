@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.donaldsonblack.medtrace.backend.model.MedtracedevRecord;
+import dev.donaldsonblack.medtrace.backend.model.EquipmentModel;
 import dev.donaldsonblack.medtrace.backend.service.EquipmentService;
-import dev.donaldsonblack.medtrace.backend.service.MedtracedevService;
 
 @RestController
 @RequestMapping("/api/equipment")
@@ -17,8 +16,8 @@ public class Equipment {
     @Autowired
     private EquipmentService equipmentService;
 
-    // @GetMapping("/all")
-    // public List<MedtracedevRecord> getAllRecords() {
-    // return equipmentService.getAllRecords();
-    // }
+    @GetMapping("/all")
+    public List<EquipmentModel> getAllRecords() {
+        return equipmentService.getAllRecords();
+    }
 }

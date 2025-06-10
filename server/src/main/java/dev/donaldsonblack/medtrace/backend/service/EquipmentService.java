@@ -20,7 +20,7 @@ public class EquipmentService {
 
     public List<EquipmentModel> getAllRecords() {
         List<EquipmentModel> records = new ArrayList<>();
-        String sql = "SELECT * FROM medtracedev";
+        String sql = "SELECT * FROM equip";
 
         try (Connection conn = dataSource.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -28,7 +28,8 @@ public class EquipmentService {
 
             while (rs.next()) {
                 EquipmentModel record = new EquipmentModel();
-                record.setId(rs.getInt("equip_ID"));
+                System.out.println(rs.toString());
+                record.setId(rs.getInt("equip_id"));
                 record.setName(rs.getString("equip_name"));
                 records.add(record);
             }
