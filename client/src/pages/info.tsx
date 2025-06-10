@@ -137,43 +137,26 @@ function TableBlock() {
 
 
 function EquipmentList() {
-  const [equipment, setEquipment] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [text, setText] = useState<string>("Loading...");
 
   useEffect(() => {
-    const fetchEquipment = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch('127.0.0.1:8080/api/medtracedev/all');
-        if (!response.ok) {
-          throw new Error('Failed to fetch equipment');
-        }
-        const data = await response.json();
-        setEquipment(data);
+        const response = await fetch('http://localhost:8080/api/medtracedev/all');
+        const data = await response.text();
         console.log(response)
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+        setText(data);
+      } catch (error) {
+        setText("Failed to fetch equipment list.");
       }
     };
-
-    fetchEquipment();
+    fetchData();
   }, []);
-
-  if (loading) return <div>Loading equipment...</div>;
-  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
       <h2>Equipment List</h2>
-      <ul>
-        {equipment.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.year}
-          </li>
-        ))}
-      </ul>
+      <p>{text}</p>
     </div>
   );
 }
