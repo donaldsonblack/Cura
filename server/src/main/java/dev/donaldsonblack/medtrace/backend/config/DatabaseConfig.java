@@ -29,7 +29,7 @@ public class DatabaseConfig {
   @Bean
   public DataSource dataSource() {
     try {
-          getSecrets();
+      getSecrets();
 
     } catch (Exception e) {
       System.err.println("Error retrieving secrets: " + e.getMessage());
@@ -51,12 +51,13 @@ public class DatabaseConfig {
     GetSecretValueRequest getSecretValueRequest = GetSecretValueRequest.builder()
         .secretId(secretName)
         .build();
-    
+
     GetSecretValueResponse getSecretValueResponse;
     try {
       getSecretValueResponse = client.getSecretValue(getSecretValueRequest);
     } catch (Exception e) {
-      // Handle exceptions such as ResourceNotFoundException, InvalidRequestException, etc.
+      // Handle exceptions such as ResourceNotFoundException, InvalidRequestException,
+      // etc.
       throw e;
     }
     String secretString = getSecretValueResponse.secretString();

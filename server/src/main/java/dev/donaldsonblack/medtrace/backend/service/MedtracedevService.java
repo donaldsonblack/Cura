@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MedtracedevService {
-    
+
     @Autowired
     private DataSource dataSource;
 
@@ -21,9 +21,9 @@ public class MedtracedevService {
         List<MedtracedevRecord> records = new ArrayList<>();
         String sql = "SELECT * FROM medtracedev";
 
-       try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = dataSource.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 MedtracedevRecord record = new MedtracedevRecord();
@@ -39,5 +39,3 @@ public class MedtracedevService {
         return records;
     }
 }
-
-

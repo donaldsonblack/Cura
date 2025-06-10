@@ -13,11 +13,11 @@ import dev.donaldsonblack.medtrace.backend.service.MedtracedevService;
 @RestController
 @RequestMapping("/api/medtracedev")
 public class MedtracedevController {
-    @Autowired
-    private MedtracedevService medtracedevService;
+  @Autowired
+  private MedtracedevService medtracedevService;
 
-    @GetMapping("/all")
-    public List<MedtracedevRecord> getAllRecords() {
-        return medtracedevService.getAllRecords();
-    }
+  @GetMapping("/all")
+  public List<MedtracedevRecord> getAllRecords() {
+    return medtracedevService.getAllRecords();
+  }
 }

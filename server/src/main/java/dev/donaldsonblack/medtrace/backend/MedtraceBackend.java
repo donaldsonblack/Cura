@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
 
-
 @SpringBootApplication
 public class MedtraceBackend implements CommandLineRunner {
 
@@ -18,8 +17,8 @@ public class MedtraceBackend implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-        System.out.println("=========================================");
-        System.out.println(" ACTIVE SPRING PROFILE: " + activeProfile);
-        System.out.println("=========================================");
+    System.out.println("=========================================");
+    System.out.println(" ACTIVE SPRING PROFILE: " + activeProfile);
+    System.out.println("=========================================");
   }
 }
