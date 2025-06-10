@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Button } from "@/components/ui/button"
 
 function Home() {
     return (
@@ -50,7 +51,7 @@ type Props = { // what is type? what is a prop?
 
 const Block = ({ children, className, ...rest } : Props)  => { // what is this doing? is it a for each? is it defining each as a prop?
     return (
-        <div className={twMerge("col-span-4 rounded-lg border border-zinc-200 bg-zinc-10    0 p-6", className )} {...rest}>{children}
+        <div className={twMerge("col-span-4 rounded-lg border border-zinc-200 bg-zinc-100    0 p-6", className )} {...rest}>{children}
 </div>
     );
 };
@@ -58,10 +59,12 @@ const Block = ({ children, className, ...rest } : Props)  => { // what is this d
 const HeaderBlock = () => {
     return ( <Block className="col-span-12 row-span-2 md:col-span-6 ">
         <img src="https://healthicons.org/icons/svg/outline/places/hospital.svg" alt="avatar" className="mb-4 size-14  bg-none" />
-        <h1 className="mb-12 text-4xl leading-tight font-bold" >Medical Maintenance <span className="text-zinc-400 font-medium">Secure Health  Software</span></h1>
+        <h1 className="mb-12 text-5xl leading-tight font-bold" >Medical Maintenance <span className="text-zinc-400 font-medium">Secure Health  Software</span></h1>
         
-        <a href="#" className="flex group items-center gap-1 text-red-600 hover:underline hover:font-medium ">Inquire Now <ArrowRight className="size-4 transition-transform duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-130 group-hover:translate-x-1"/> </a> {/* can replace with Link from router to not refresh page */}
-        
+        {/* <a href="#" className="flex group items-center gap-1 text-red-600 hover:underline ">Inquire Now <ArrowRight className="size-4 transition-transform duration-300 ease-in-out group-hover:-rotate-45 group-hover:scale-130 group-hover:translate-x-1"/> </a> {/* can replace with Link from router to not refresh page */}
+        <div className="flex flex-col items-end w-full">
+            <Button className="group hover:scale-110 hover:bg-blue-700 rounded-full bg-green-600 text-white text-2xl w-60 h-15 border border-zinc-300 font-bold">Inquire Now <ArrowRight className="size-7 -rotate-45 transition-transform duration-200 ease-in-out group-hover:rotate-[1deg] group-hover:scale-130" /></Button>
+        </div>
     </Block>
     )
 }
