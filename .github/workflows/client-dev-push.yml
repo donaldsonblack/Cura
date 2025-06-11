@@ -1,4 +1,4 @@
-name: Client Push to Dev Branch Deployment
+name: Client Directory Push on Dev Branch
 
 on:
   push:
