@@ -37,7 +37,6 @@ public class EquipmentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return records;
     }
 
