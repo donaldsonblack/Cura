@@ -13,7 +13,7 @@ import dev.donaldsonblack.medtrace.backend.service.EquipmentService;
 
 @RestController
 @RequestMapping("/api/equipment")
-public class Equipment {
+public class EquipmentController {
     @Autowired
     private EquipmentService equipmentService;
 
