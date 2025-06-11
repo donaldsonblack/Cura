@@ -1,11 +1,11 @@
-name: Client Push on Dev Branch
+name: Server Push on Dev Branch
 
 on:
   push:
     branches:
       - dev
     paths:
-      - 'client/**'   # Only trigger if something in /client is changed
+      - 'server/**'   # Only trigger if something in /client is changed
 
 jobs:
   say-hello:
@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Say Hello
-        run: echo "Hello World from /client on dev branch!"
+        run: echo "Hello World from /server on dev branch!"
