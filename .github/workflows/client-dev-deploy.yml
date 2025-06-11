@@ -1,7 +1,18 @@
-name: Client-dev-deploy
+name: Client Push to Dev Branch Deployment
+
 on:
   push:
     branches:
       - dev
     paths:
-      - client/**
+      - 'client/**'   # Only trigger if something in /client is changed
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Say Hello
+        run: echo "Hello World from /client on dev branch!"
