@@ -1,0 +1,7 @@
+name: Client-dev-deploy
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - client/**
