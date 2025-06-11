@@ -1,7 +1,7 @@
 import Layout from './components/ui/layout'
 import './index.css'
-import Home from "./pages/Home"
-import Info from './pages/Info'
+import Home from "./pages/home"
+import Info from './pages/info'
 import Login from './pages/Login'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' 
 // ^ curly braces means item(s) were named in the file they're being retrieved from
