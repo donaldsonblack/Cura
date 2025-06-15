@@ -8,11 +8,17 @@ on:
       - 'server/**'   # Only trigger if something in /client is changed
 
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Say Hello
-        run: echo "Hello World from /server on dev branch!"
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build with Gradle
+        run: ./gradlew jib
