@@ -3,6 +3,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
     id("application")
+    id("com.google.cloud.tools.jib") version "3.4.5"
 }
 
 group = "dev.donaldsonblack"
@@ -56,4 +57,13 @@ tasks.jar {
 
 application {
     mainClass.set("dev.donaldsonblack.medtrace.backend.MedtraceBackend")
+}
+
+jib {
+    from {
+        image = "eclipse-temurin:21-jdk"
+    }
+    to {
+        image = "donaldsonblack/medtrace-backend"
+    }
 }
