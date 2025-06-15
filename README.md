@@ -1,6 +1,6 @@
 ![](https://skillicons.dev/icons?i=java,gradle,spring,react,aws,cloudflare)
 
- # MedTrace
+ # Cura
  > A medical focused equipment maintenance tracking solution. Using a Java springboot backend, with a static React front-end and AWS RDS database.
 
 ---
