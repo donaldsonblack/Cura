@@ -38,4 +38,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build Docker image with Jib
-        run: ./gradlew jib --no-configuration-cache
+        run: ./gradlew jibDockerBuild --no-configuration-cache

@@ -13,7 +13,6 @@ public class MedtraceBackend implements CommandLineRunner {
 
   public static void main(String[] args) {
     SpringApplication.run(MedtraceBackend.class, args);
-    // Workflow
   }
 
   @Override
