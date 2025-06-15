@@ -64,7 +64,7 @@ jib {
         image = "eclipse-temurin:21-jdk"
     }
     to {
-        image = "ghcr.io/donaldsonblack/medtrace-backend:latest"
+        image = "ghcr.io/donaldsonblack/medtrace-backend"
         auth {
             username = System.getenv("GHCR_USERNAME")
             password = System.getenv("GHCR_PAT")
