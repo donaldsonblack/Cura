@@ -1,0 +1,8 @@
+services:
+  vite-app:
+    build:
+      context: .          # Assuming your Dockerfile is in the root
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"        # Vite preview default port
+    container_name: vite-preview
