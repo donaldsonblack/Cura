@@ -11,6 +11,15 @@ public class UserController {
   @GetMapping("/me")
   public String getUser(@AuthenticationPrincipal Jwt jwt) {
     // @TODO - Implement logic to retrieve user information from the JWT token
-    return "todo";
+    jwt.getClaims().forEach((key, value) -> {
+      System.out.println(key + ": " + value);
+    });
+    return jwt.getClaimAsString("username");
+  }
+
+  @GetMapping("/jwt")
+  public String getJwtClaims(@AuthenticationPrincipal Jwt jwt) {
+    // Return the JWT claims as a string
+    return jwt.getClaims().toString();
   }
 }
