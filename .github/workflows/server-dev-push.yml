@@ -54,4 +54,3 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/cura-server:${{ env.NEW_VERSION }}
             ghcr.io/${{ github.repository_owner }}/cura-server:dev
-            ghcr.io/${{ github.repository_owner }}/cura-server:${{ github.sha }}
