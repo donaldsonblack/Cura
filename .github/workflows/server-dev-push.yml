@@ -31,5 +31,5 @@ jobs:
           file: ./server/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/cura:dev
-            ghcr.io/${{ github.repository_owner }}/cura:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/cura-server:dev
+            ghcr.io/${{ github.repository_owner }}/cura-server:${{ github.sha }}
