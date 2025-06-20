@@ -1,0 +1,10 @@
+name: Test Self-Hosted
+
+on: [push]
+
+jobs:
+  runner-check:
+    runs-on: self-hosted
+    steps:
+      - run: uname -a
+      - run: echo "It worked on $RUNNER_NAME!"
