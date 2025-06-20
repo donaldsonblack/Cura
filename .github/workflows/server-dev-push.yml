@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-push:
     if: github.actor != 'github-actions[bot]'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: write   # needed for pushing commits
       packages: write   # for GHCR push
