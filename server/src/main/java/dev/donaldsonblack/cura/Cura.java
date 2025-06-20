@@ -13,7 +13,6 @@ public class Cura implements CommandLineRunner {
 
   public static void main(String[] args) {
     SpringApplication.run(Cura.class, args);
-    // Trigger workflow
   }
 
   @Override
