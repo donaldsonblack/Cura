@@ -19,7 +19,7 @@ RUN chmod +x gradlew \
 FROM eclipse-temurin:21-jre
 
 # Link back to the GitHub source repository
-LABEL org.opencontainers.image.source="https://github.com/donaldsonblack/cura"
+LABEL org.opencontainers.image.source="https://github.com/donaldsonblack/medtrace"
 
 WORKDIR /app
 
