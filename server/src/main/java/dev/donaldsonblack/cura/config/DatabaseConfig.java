@@ -1,4 +1,4 @@
-package dev.donaldsonblack.medtrace.backend.config;
+package dev.donaldsonblack.cura.backend.config;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Value;

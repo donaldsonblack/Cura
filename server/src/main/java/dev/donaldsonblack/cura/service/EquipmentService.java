@@ -1,4 +1,4 @@
-package dev.donaldsonblack.medtrace.backend.service;
+package dev.donaldsonblack.cura.backend.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.donaldsonblack.medtrace.backend.model.EquipmentModel;
-
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import dev.donaldsonblack.cura.backend.model.EquipmentModel;
 
 @Service
 public class EquipmentService {
