@@ -47,7 +47,7 @@ dependencies {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "dev.donaldsonblack.cura.backend.Cura"
+        attributes["Main-Class"] = "dev.donaldsonblack.cura.Cura"
     }
 
     // Optionally include compileClasspath in the JAR
@@ -56,7 +56,7 @@ tasks.jar {
 }
 
 application {
-    mainClass.set("dev.donaldsonblack.cura.backend.Cura")
+    mainClass.set("dev.donaldsonblack.cura.Cura")
 }
 
 jib {
