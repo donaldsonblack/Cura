@@ -1,0 +1,22 @@
+services:
+  cura:
+    build:
+      dockerfile: Dockerfile
+    image: donaldsonblack/cura:latest
+    volumes:
+      - ${HOME}/.aws/credentials:/root/.aws/credentials:ro
+      - ${HOME}/.aws/config:/root/.aws/config:ro
+    ports:
+      - "8080:8080"
+    environment:
+      # Activate the "dev" profile
+      SPRING_PROFILES_ACTIVE: "dev"
+
+      # application-dev.properties overrides
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      AWS_SECRET_REGION:         "ap-southeast-2"
+      AWS_SECRET_NAME:           "rds!cluster-4ae5ed88-b0bf-44f5-b47c-3bfdfdb1b09c"
+      AWS_RDS_ENDPOINT:          "jdbc:postgresql://medtrace-dev.cluster-ro-cfe8qyey0z29.ap-southeast-2.rds.amazonaws.com:5432/medtracedev"
+      ISSUER_URI:                "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_tCQVuWZGX/.well-known/jwks.json"
+      AWS_SHARED_CREDENTIALS_FILE: "/root/.aws/credentials"
+      AWS_CONFIG_FILE:            "/root/.aws/config"
