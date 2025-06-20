@@ -23,7 +23,7 @@ jobs:
       - name: Bump patch version
         id: bump
         run: |
-          VERSION=$(grep '^version=' gradle.properties | cut -d'=' -f2)
+          VERSION=$(grep '^version=' /server/gradle.properties | cut -d'=' -f2)
           IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
           PATCH=$((PATCH+1))
           NEW_VERSION="$MAJOR.$MINOR.$PATCH"
