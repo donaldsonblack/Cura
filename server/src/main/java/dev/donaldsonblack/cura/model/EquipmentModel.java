@@ -1,4 +1,4 @@
-package dev.donaldsonblack.medtrace.backend.model;
+package dev.donaldsonblack.cura.backend.model;
 
 public class EquipmentModel {
   private int equipmentId;

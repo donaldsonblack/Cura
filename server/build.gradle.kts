@@ -3,6 +3,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     id("java")
     id("application")
+    id("com.google.cloud.tools.jib") version "3.4.5"
 }
 
 group = "dev.donaldsonblack"
@@ -38,15 +39,15 @@ dependencies {
     implementation("com.zaxxer:HikariCP")
     
     // Use for JWT and cognito authentication lateer
-    //implementation("org.springframework.boot:spring-boot-starter-security")
-    //implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-    //implementation("org.springframework.security:spring-security-jwt:1.1.1.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("org.springframework.security:spring-security-jwt:1.1.1.RELEASE")
 }
 
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "dev.donaldsonblack.medtrace.backend.MedtraceBackend"
+        attributes["Main-Class"] = "dev.donaldsonblack.cura.Cura"
     }
 
     // Optionally include compileClasspath in the JAR
@@ -55,5 +56,19 @@ tasks.jar {
 }
 
 application {
-    mainClass.set("dev.donaldsonblack.medtrace.backend.MedtraceBackend")
+    mainClass.set("dev.donaldsonblack.cura.Cura")
+}
+
+jib {
+    from {
+        image = "eclipse-temurin:21-jdk"
+    }
+    to {
+        image = "ghcr.io/donaldsonblack/cura"
+        auth {
+            username = System.getenv("GHCR_USERNAME")
+            password = System.getenv("GHCR_PAT")
+        }
+        
+    }
 }
